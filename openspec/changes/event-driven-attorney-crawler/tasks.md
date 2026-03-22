@@ -6,11 +6,6 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 ## Phase 0: Project Scaffold & Infrastructure
 
-### 0.1 — Initialize Gradle project with Spring Boot
-- Spring Boot 3.x, Java 25, Kotlin DSL (`build.gradle.kts`)
-- Dependencies: spring-boot-starter-web, spring-kafka, spring-boot-starter-data-jpa, spring-modulith-starter, flyway-core, jsoup, postgresql driver, jackson
-- Test dependencies: spring-boot-starter-test, spring-modulith-test, spring-kafka-test, testcontainers (kafka + postgres)
-- `application.yml` with Kafka broker, Postgres connection, virtual threads enabled, fetcher delay config
 
 ### 0.2 — podman-compose.yml
 - Redpanda (port 9092), Postgres (port 5432)
@@ -21,6 +16,12 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 - `V2__create_attorney_profiles.sql` — `attorney_profiles` table with JSONB columns for lists/maps (see design.md Section 5)
 
 **Done when:** `podman compose up` starts Redpanda + Postgres, app boots with `./gradlew bootRun`, Flyway runs migrations.
+- [x] **0.1 — Initialize Gradle project with Spring Boot**
+  - Spring Boot 3.x, Java 21, Kotlin DSL (`build.gradle.kts`)
+  - Dependencies: spring-boot-starter-web, spring-kafka, spring-boot-starter-data-jpa, spring-modulith-starter, flyway-core, jsoup, postgresql driver, jackson
+  - Test dependencies: spring-boot-starter-test, spring-modulith-test, spring-kafka-test, testcontainers (kafka + postgres)
+  - Spotless plugin for code formatting (see 0.4)
+  - `application.yml` with Kafka broker, Postgres connection, virtual threads enabled, fetcher delay config
 
 ---
 
