@@ -30,7 +30,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 > **Done when:** `podman compose up` starts Redpanda + Postgres, app boots with `./gradlew bootRun`, Flyway runs migrations, `./gradlew spotlessCheck` passes.
 
-- [ ] **CHECKPOINT 0 — Verify scaffold** *(pause for manual testing)*
+- [x] **CHECKPOINT 0 — Verify scaffold** *(pause for manual testing)*
   - `podman compose up -d` → Redpanda + Postgres healthy
   - `./gradlew bootRun` → app starts, Flyway migrations run, no errors
   - `./gradlew spotlessCheck` → passes
