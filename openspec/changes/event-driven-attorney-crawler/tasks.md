@@ -79,7 +79,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 > **Done when:** Scheduler produces exactly 1 well-formed CrawlUrl message on startup.
 
-- [ ] **CHECKPOINT 2 — Verify scheduler** *(pause for manual testing)*
+- [x] **CHECKPOINT 2 — Verify scheduler** *(pause for manual testing)*
   - `./gradlew test` → scheduler integration test passes
   - `./gradlew bootRun` → observe log: "Seeded 1 URL to urls_to_crawl"
   - Optionally inspect `urls_to_crawl` topic via `rpk topic consume urls_to_crawl`
@@ -88,11 +88,11 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 ## Phase 3: Fetcher Module
 
-- [ ] **3.1 — SeenUrlRepository**
+- [x] **3.1 — SeenUrlRepository** *(moved to shared module)*
   - Spring Data JPA repository for `seen_urls` table
-  - JPA entity: `SeenUrlEntity` with `url` (PK) and `seenAt`
+  - JPA entity: `SeenUrl` with `url` (PK) and `seenAt`
   - `existsByUrl(String url)` check
-  - Save-or-ignore semantics (catch `DataIntegrityViolationException` or use native query `INSERT ... ON CONFLICT DO NOTHING`)
+  - `SeenUrlService.markAsSeenIfNew(String url)` for dedup
 
 - [ ] **3.2 — FetcherService**
   - Uses `RestClient` (Spring 6.1+) to GET a URL
