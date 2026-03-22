@@ -40,7 +40,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 ## Phase 1: Shared Module
 
-- [ ] **1.1 — Message records**
+- [x] **1.1 — Message records**
   - `CrawlUrl(String url, String source, int depth, PageType pageType)`
   - `RawPage(String url, int status, String html, String source, int depth, PageType pageType, Instant fetchedAt)`
   - `AttorneyProfile(String url, String name, String surname, String title, String location, String phone, String email, String photoUrl, String bio, List<String> practiceAreas, List<String> education, List<String> barAdmissions, List<String> memberships, Map<String, String> socialLinks, List<OfficeLocation> officeLocations, String source, Instant extractedAt)`
@@ -49,17 +49,17 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - `PageType` enum: `LISTING`, `DETAIL`
   - `Topics` constants class: `URLS_TO_CRAWL`, `RAW_PAGES`, `PARSED_ITEMS`, `ERRORS`
 
-- [ ] **1.2 — Kafka serialization config**
+- [x] **1.2 — Kafka serialization config**
   - Jackson-based `JsonSerializer` / `JsonDeserializer` configured for the record types
   - `spring.json.trusted.packages` set to `com.example.crawler.shared`
 
-- [ ] **1.3 — Unit tests for shared records**
+- [x] **1.3 — Unit tests for shared records**
   - Records serialize/deserialize correctly via Jackson round-trip
   - No Kafka or infrastructure needed
 
 > **Done when:** All message types compile, serialize, and deserialize. No infrastructure dependency.
 
-- [ ] **CHECKPOINT 1 — Verify shared module** *(pause for manual testing)*
+- [x] **CHECKPOINT 1 — Verify shared module** *(pause for manual testing)*
   - `./gradlew test` → shared record serialization tests pass
   - `./gradlew spotlessCheck` → passes
 
