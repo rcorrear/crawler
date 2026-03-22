@@ -94,7 +94,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - `existsByUrl(String url)` check
   - `SeenUrlService.markAsSeenIfNew(String url)` for dedup
 
-- [ ] **3.2 — FetcherService**
+- [x] **3.2 — FetcherService**
   - Uses `RestClient` (Spring 6.1+) to GET a URL
   - Configurable via `application.yml`:
     - `crawler.fetcher.delay-ms` (default: 1000) — delay between requests
@@ -104,7 +104,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - Returns response body (HTML string) + HTTP status code
   - Retries on connection errors up to `max-retries`
 
-- [ ] **3.3 — FetcherListener (@KafkaListener on urls_to_crawl)**
+- [x] **3.3 — FetcherListener (@KafkaListener on urls_to_crawl)**
   - Consumer group: `crawler-fetcher`
   - Checks `seen_urls` — skips if already fetched
   - Calls FetcherService to fetch HTML

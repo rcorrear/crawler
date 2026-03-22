@@ -6,6 +6,7 @@ import com.example.crawler.shared.SeenUrlService;
 import com.example.crawler.shared.Topics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,18 +26,19 @@ class SchedulerConfig {
 
     @Bean
     ApplicationRunner schedulerRunner(
-            KafkaTemplate<String, CrawlUrl> kafkaTemplate, SeenUrlService seenUrlService) {
+            @Qualifier("crawlUrlKafkaTemplate") KafkaTemplate<String, CrawlUrl> kafkaTemplate,
+            SeenUrlService seenUrlService) {
         return args -> {
             String listingUrl = BASE_URL + LISTING_PATH;
 
             // Check if we've already scheduled this URL
-            if (seenUrlService.hasBeenSeen(listingUrl)) {
+            if (seenUrlService.hasBeenScheduled(listingUrl)) {
                 log.info("URL already scheduled, skipping: {}", listingUrl);
                 return;
             }
 
-            // Mark as seen before producing to prevent duplicates on restart
-            if (!seenUrlService.markAsSeenIfNew(listingUrl)) {
+            // Mark as SCHEDULED before producing to prevent duplicates on restart
+            if (!seenUrlService.markAsScheduledIfNew(listingUrl)) {
                 log.info("URL already scheduled (race condition), skipping: {}", listingUrl);
                 return;
             }

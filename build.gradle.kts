@@ -29,6 +29,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.kafka:spring-kafka")
+    implementation("org.springframework.retry:spring-retry")
     
     // Spring Modulith
     implementation("org.springframework.modulith:spring-modulith-starter-core:1.3.2")

@@ -33,6 +33,13 @@ spring:
 crawler:
   base-url: https://www.forthepeople.com
   max-detail-pages: 160
+  kafka:
+    writer:
+      username: ""
+      password: ""
+    reader:
+      username: ""
+      password: ""
   fetcher:
     delay-ms: 1000
     timeout-ms: 10000
