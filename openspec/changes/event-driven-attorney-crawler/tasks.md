@@ -67,7 +67,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 ## Phase 2: Scheduler Module
 
-- [ ] **2.1 — SchedulerRunner (ApplicationRunner)**
+- [x] **2.1 — SchedulerRunner (ApplicationRunner)**
   - On startup, produces **1** `CrawlUrl` message to `urls_to_crawl`
   - URL: `https://www.forthepeople.com/attorneys/` (single page — all attorneys are in a JSON blob, pagination is client-side)
   - Sets `source = "forthepeople"`, `depth = 0`, `pageType = LISTING`
