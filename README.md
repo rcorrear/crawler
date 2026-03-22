@@ -36,6 +36,11 @@ Scheduler → urls_to_crawl → Fetcher → raw_pages → Parser → parsed_item
 - PostgreSQL + Flyway
 - Testcontainers (integration tests)
 
+### Dev Tools (via podman-compose)
+
+- [Redpanda Console](https://docs.redpanda.com/current/reference/console/) — Inspect Kafka topics and messages at http://localhost:8084
+- [pgweb](https://github.com/sosedoff/pgweb) — Browse Postgres data at http://localhost:8083
+
 ## Prerequisites
 
 - Java 21+
@@ -48,6 +53,12 @@ Start infrastructure:
 ```bash
 podman compose up -d
 ```
+
+This starts:
+- **Redpanda** (Kafka-compatible broker) on port 9092
+- **Postgres** on port 5432
+- **Redpanda Console** on http://localhost:8084 (for inspecting topics/messages)
+- **pgweb** on http://localhost:8083 (for browsing Postgres data)
 
 Run the application:
 

@@ -7,10 +7,6 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 ## Phase 0: Project Scaffold & Infrastructure
 
 
-### 0.2 — podman-compose.yml
-- Redpanda (port 9092), Postgres (port 5432)
-- Topic auto-creation enabled via Redpanda defaults (no init script needed — Spring Kafka auto-creates topics on first produce)
-
 ### 0.3 — Flyway migrations
 - `V1__create_seen_urls.sql` — `seen_urls` table (`url TEXT PRIMARY KEY, seen_at TIMESTAMP`)
 - `V2__create_attorney_profiles.sql` — `attorney_profiles` table with JSONB columns for lists/maps (see design.md Section 5)
@@ -23,6 +19,9 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - Spotless plugin for code formatting (see 0.4)
   - `application.yml` with Kafka broker, Postgres connection, virtual threads enabled, fetcher delay config
 
+- [x] **0.2 — podman-compose.yml**
+  - Redpanda (port 9092), Postgres (port 5432)
+  - Topic auto-creation enabled via Redpanda defaults (no init script needed — Spring Kafka auto-creates topics on first produce)
 ---
 
 ## Phase 1: Shared Module
