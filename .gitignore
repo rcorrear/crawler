@@ -2,6 +2,7 @@
 application-prod.yml
 .devenv/
 .direnv/
+.pre-commit-config.yaml
 
 # Gradle
 .gradle/
