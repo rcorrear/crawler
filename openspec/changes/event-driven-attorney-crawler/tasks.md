@@ -72,7 +72,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - URL: `https://www.forthepeople.com/attorneys/` (single page — all attorneys are in a JSON blob, pagination is client-side)
   - Sets `source = "forthepeople"`, `depth = 0`, `pageType = LISTING`
 
-- [ ] **2.2 — Scheduler integration test**
+- [x] **2.2 — Scheduler integration test**
   - Embedded Kafka (spring-kafka-test)
   - Verify exactly 1 message lands on `urls_to_crawl` topic
   - Assert message content: correct URL, `depth=0`, `pageType=LISTING`
