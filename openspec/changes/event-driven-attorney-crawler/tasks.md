@@ -130,7 +130,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 ## Phase 4: Parser Module
 
-- [ ] **4.1 — ListingPageParser**
+- [x] **4.1 — ListingPageParser**
   - Input: HTML of `/attorneys/` (full page including embedded JSON)
   - Extraction: Jsoup `doc.select("script[data-drupal-selector=drupal-settings-json]").first().data()`
   - Jackson: parse JSON → navigate to `attorneys_master_list.data` (array of ~1,100 objects)
@@ -139,7 +139,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - For the first `crawler.max-detail-pages` entries (default: 160), produce `CrawlUrl` with `depth=1`, `pageType=DETAIL`
   - Returns: list of `AttorneyProfile` (listing-level) + list of `CrawlUrl` (detail page URLs, capped)
 
-- [ ] **4.2 — DetailPageParser**
+- [x] **4.2 — DetailPageParser**
   - Input: HTML of `/attorneys/{slug}/`
   - Jsoup selectors (see design.md Section 7):
     - Name: `div.attorney-sidebar-info h1` → `.text()`
@@ -159,7 +159,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - All selectors return empty string / empty list when element is absent
   - Returns: single `AttorneyProfile` (complete)
 
-- [ ] **4.3 — ParserListener (@KafkaListener on raw_pages)**
+- [x] **4.3 — ParserListener (@KafkaListener on raw_pages)**
   - Consumer group: `crawler-parser`
   - Dispatches to `ListingPageParser` or `DetailPageParser` based on `RawPage.pageType()`
   - Produces `AttorneyProfile` messages to `parsed_items`
