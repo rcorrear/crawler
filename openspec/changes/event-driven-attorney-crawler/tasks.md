@@ -223,18 +223,18 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 ## Phase 6: Integration & Verification
 
-- [ ] **6.1 — Modulith verification test**
+- [x] **6.1 — Modulith verification test**
   - `ApplicationModules(CrawlerApplication.class).verify()`
   - Confirms no illegal cross-module dependencies (all modules depend only on `shared`)
 
-- [ ] **6.2 — End-to-end smoke test**
+- [x] **6.2 — End-to-end smoke test** *(disabled by default, requires Docker)*
   - Testcontainers: Redpanda + Postgres
   - Set `crawler.max-detail-pages=5` to keep test fast
   - Trigger scheduler → wait for pipeline to complete (poll `attorney_profiles` table)
   - Assert: 1,100 listing-level rows + 5 detail-enriched rows in DB
   - Assert: detail-enriched rows have bio, education, etc. populated
 
-- [ ] **6.3 — Final spotlessApply + spotlessCheck**
+- [x] **6.3 — Final spotlessApply + spotlessCheck**
   - Run `./gradlew spotlessApply` to format all code
   - Run `./gradlew spotlessCheck` to verify
   - Run full `./gradlew build` (compile + test + check)
