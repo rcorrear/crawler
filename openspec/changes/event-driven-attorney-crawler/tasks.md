@@ -112,7 +112,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - Produces `RawPage` to `raw_pages` topic (carries forward `depth`, `pageType`, `source`)
   - On error, produces `CrawlError` to `errors` topic
 
-- [ ] **3.4 — Fetcher integration test**
+- [x] **3.4 — Fetcher integration test**
   - Embedded Kafka + Testcontainers Postgres
   - Produce a `CrawlUrl` to `urls_to_crawl` → verify `RawPage` on `raw_pages` with `status=200` and non-empty HTML
   - Produce the same URL again → verify it's skipped (dedup)
