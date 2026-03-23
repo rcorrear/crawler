@@ -166,12 +166,12 @@ Tasks are ordered so each module can be built, tested, and verified before movin
   - Produces discovered `CrawlUrl` messages (detail page URLs) to `urls_to_crawl`
   - On parse error, produces `CrawlError` to `errors`
 
-- [ ] **4.4 — Parser unit tests**
+- [x] **4.4 — Parser unit tests**
   - Save HTML fixtures: listing page snapshot, 2 detail page snapshots (rich + minimal profile)
   - Feed fixtures to each parser, assert extracted fields match expected values
   - No Kafka, no HTTP
 
-- [ ] **4.5 — Parser integration test**
+- [x] **4.5 — Parser integration test**
   - Produce a `RawPage` with fixture HTML to `raw_pages`
   - Verify `AttorneyProfile` on `parsed_items` and `CrawlUrl` messages on `urls_to_crawl`
 
