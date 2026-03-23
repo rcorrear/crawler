@@ -120,7 +120,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 > **Done when:** Fetcher consumes URLs, fetches HTML, deduplicates, and handles errors.
 
-- [ ] **CHECKPOINT 3 — Verify fetcher** *(pause for manual testing)*
+- [x] **CHECKPOINT 3 — Verify fetcher** *(pause for manual testing)*
   - `./gradlew test` → fetcher integration test passes
   - `./gradlew bootRun` → scheduler seeds URL → fetcher picks it up → `RawPage` produced to `raw_pages`
   - Verify `seen_urls` table has the fetched URL
