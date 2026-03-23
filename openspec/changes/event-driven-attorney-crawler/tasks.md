@@ -177,7 +177,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 > **Done when:** Both parsers correctly extract data from HTML fixtures. Listener routes correctly and produces to the right topics.
 
-- [ ] **CHECKPOINT 4 — Verify parser** *(pause for manual testing)*
+- [x] **CHECKPOINT 4 — Verify parser** *(pause for manual testing)*
   - `./gradlew test` → parser unit + integration tests pass
   - `./gradlew bootRun` → full pipeline up to parser: scheduler → fetcher → parser → `parsed_items` populated
   - Optionally inspect `parsed_items` topic to see attorney profiles
