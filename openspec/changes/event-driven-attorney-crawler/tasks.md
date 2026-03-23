@@ -187,25 +187,25 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 ## Phase 5: Storage Module
 
-- [ ] **5.1 — AttorneyProfileEntity (JPA entity)**
+- [x] **5.1 — AttorneyProfileEntity (JPA entity)**
   - Maps to `attorney_profiles` table
   - All fields from the `AttorneyProfile` record
   - `url` as natural key (`@Column(unique = true)`)
   - List/Map fields stored as JSONB (use `@JdbcTypeCode(SqlTypes.JSON)` or Hibernate JSON type)
   - `createdAt`, `updatedAt` timestamps
 
-- [ ] **5.2 — AttorneyProfileRepository**
+- [x] **5.2 — AttorneyProfileRepository**
   - Spring Data JPA repository
   - Custom upsert method: if URL exists, update non-null fields (COALESCE semantics — detail enriches listing data, doesn't overwrite with nulls)
   - Can use `@Query` with native upsert or handle in service layer with find-then-merge
 
-- [ ] **5.3 — StorageListener (@KafkaListener on parsed_items)**
+- [x] **5.3 — StorageListener (@KafkaListener on parsed_items)**
   - Consumer group: `crawler-storage`
   - Consumes `AttorneyProfile` messages
   - Maps record → entity
   - Persists via repository (upsert)
 
-- [ ] **5.4 — Storage integration test**
+- [x] **5.4 — Storage integration test**
   - Embedded Kafka + Testcontainers Postgres
   - Produce an `AttorneyProfile` (listing-level, no bio) to `parsed_items` → verify row created
   - Produce an `AttorneyProfile` (detail-level, with bio) for the same URL → verify row updated, bio populated, listing-level fields preserved
@@ -213,7 +213,7 @@ Tasks are ordered so each module can be built, tested, and verified before movin
 
 > **Done when:** Storage consumes profiles and persists them correctly with upsert/enrichment behavior.
 
-- [ ] **CHECKPOINT 5 — Verify storage** *(pause for manual testing)*
+- [x] **CHECKPOINT 5 — Verify storage** *(pause for manual testing)*
   - `./gradlew test` → storage integration test passes
   - `./gradlew bootRun` → full pipeline end-to-end: attorneys land in Postgres
   - `SELECT count(*) FROM attorney_profiles;` → rows present
